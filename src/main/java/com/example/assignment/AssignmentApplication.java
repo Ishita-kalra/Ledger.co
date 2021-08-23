@@ -1,6 +1,6 @@
 package com.example.assignment;
 
-import com.example.assignment.Controller.LoanService;
+import com.example.assignment.Service.LoanService;
 import com.example.assignment.Exceptions.InvalidInputException;
 import com.example.assignment.Manager.LoanManager;
 import com.example.assignment.Model.BANK;
@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -23,7 +22,7 @@ public class AssignmentApplication {
     public static void main(String[] args) {
         SpringApplication.run(AssignmentApplication.class, args);
          //add the location of your txt file here
-        String path = System.getProperty("user.home")+"/Documents/test.txt";
+        String path = args[0];
         if(Files.exists(Paths.get(path))) {
             try {
                 File file = new File(path);
